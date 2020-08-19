@@ -1,2 +1,5 @@
-# DevOps
-ITS Partner Internship
+# Task 1
+
+Написать питон приложение, которое делаем запрос на любой ресурс по http и сделать dump запроса через Wireshark
+
+
