@@ -1,24 +1,19 @@
 import socket
-import time
 
 HEADERSIZE = 10
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((socket.gethostname(), 1242))
-i = 0
+s.connect((socket.gethostname(), 9999))
 
+message_count = 0
 while True:
     full_msg = ''
     new_msg = True
-    time.sleep(2)
-    if i == 0:
-        time.sleep(20)
-    i+=1
     while True:
         msg = s.recv(16)
         if new_msg:
-            print("new msg len:", msg[:HEADERSIZE])
-            msglen = int(msg[:HEADERSIZE])
+            print("new msg len:", msg[:HEADERSIZE].decode())
+            msglen = int(msg[:HEADERSIZE].decode())
             new_msg = False
 
         print(f"full message length: {msglen}")
@@ -30,7 +25,7 @@ while True:
         if len(full_msg) - HEADERSIZE == msglen:
             print("full msg recvd")
             print(full_msg[HEADERSIZE:])
-            # new_msg = True
-            s.close()
-            break
-    break
+            new_msg = True
+            full_msg = ''
+            msglen = 0
+# s.close()
