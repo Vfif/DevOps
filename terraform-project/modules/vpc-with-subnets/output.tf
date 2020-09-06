@@ -1,3 +1,3 @@
 output "subnets" {
-  value = aws_subnet.test-public-subnet.*.id
+  value = aws_subnet.public-subnet.*.id
 }
