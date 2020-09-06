@@ -45,9 +45,7 @@ resource "aws_instance" "test-instance" {
 /*--------------------------IAM-------------------------------*/
 module "test-iam-role-with-policies" {
   source = "./modules/iam-role-with-policies"
-
-  policies = [
-    aws_iam_policy.ec2-policy, aws_iam_policy.admin-policy]
+  policy-arns = [aws_iam_policy.ec2-policy.arn, aws_iam_policy.admin-policy.arn]
 }
 
 resource "aws_iam_policy" "ec2-policy" {

@@ -1,11 +1,9 @@
-variable "subnet-count"{
-  default =2
-}
-
 variable "vpc-cidr-block" {
   default = "172.32.0.0/16"
 }
 
-variable "availability_zones" {
-  default = ["us-east-1a", "us-east-1f"]
+variable "availability_zones_num" {
+  type = list(number)
+  default = [0, 5]//["us-east-1a", "us-east-1f"]
 }
+

@@ -18,7 +18,7 @@ EOF
 }
 
 resource "aws_iam_role_policy_attachment" "test-attach" {
-  count = length(var.policies)
+  count = length(var.policy-arns)
   role       = aws_iam_role.test_role.name
-  policy_arn = element(var.policies.*.arn, count.index)
+  policy_arn = var.policy-arns[count.index]
 }
