@@ -1,0 +1,1 @@
+Select case when grade > 7 then name else 'NULL' end, grade, marks from students join grades on marks < max_mark and marks > min_mark;
